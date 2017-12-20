@@ -16,6 +16,8 @@
 		6DEC37D71FEA713400354AA0 /* XZYComViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC37D61FEA713400354AA0 /* XZYComViewController.m */; };
 		6DEC37DD1FEA88AF00354AA0 /* 导航栏_返回@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DEC37DB1FEA88AF00354AA0 /* 导航栏_返回@3x.png */; };
 		6DEC37DE1FEA88AF00354AA0 /* 导航栏_返回@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DEC37DC1FEA88AF00354AA0 /* 导航栏_返回@2x.png */; };
+		6DEC37E11FEA917C00354AA0 /* XZYComNavtionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC37E01FEA917C00354AA0 /* XZYComNavtionController.m */; };
+		6DEC37E41FEA921E00354AA0 /* XZYMainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC37E31FEA921E00354AA0 /* XZYMainTabViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,10 @@
 		6DEC37D61FEA713400354AA0 /* XZYComViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZYComViewController.m; sourceTree = "<group>"; };
 		6DEC37DB1FEA88AF00354AA0 /* 导航栏_返回@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "导航栏_返回@3x.png"; sourceTree = "<group>"; };
 		6DEC37DC1FEA88AF00354AA0 /* 导航栏_返回@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "导航栏_返回@2x.png"; sourceTree = "<group>"; };
+		6DEC37DF1FEA917C00354AA0 /* XZYComNavtionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZYComNavtionController.h; sourceTree = "<group>"; };
+		6DEC37E01FEA917C00354AA0 /* XZYComNavtionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZYComNavtionController.m; sourceTree = "<group>"; };
+		6DEC37E21FEA921E00354AA0 /* XZYMainTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZYMainTabViewController.h; sourceTree = "<group>"; };
+		6DEC37E31FEA921E00354AA0 /* XZYMainTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZYMainTabViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,10 @@
 				6DEC37DB1FEA88AF00354AA0 /* 导航栏_返回@3x.png */,
 				6DEC37D51FEA713400354AA0 /* XZYComViewController.h */,
 				6DEC37D61FEA713400354AA0 /* XZYComViewController.m */,
+				6DEC37DF1FEA917C00354AA0 /* XZYComNavtionController.h */,
+				6DEC37E01FEA917C00354AA0 /* XZYComNavtionController.m */,
+				6DEC37E21FEA921E00354AA0 /* XZYMainTabViewController.h */,
+				6DEC37E31FEA921E00354AA0 /* XZYMainTabViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -164,7 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DEC37BD1FEA6EF900354AA0 /* ViewController.m in Sources */,
+				6DEC37E41FEA921E00354AA0 /* XZYMainTabViewController.m in Sources */,
 				6DEC37C81FEA6EF900354AA0 /* main.m in Sources */,
+				6DEC37E11FEA917C00354AA0 /* XZYComNavtionController.m in Sources */,
 				6DEC37D71FEA713400354AA0 /* XZYComViewController.m in Sources */,
 				6DEC37BA1FEA6EF900354AA0 /* AppDelegate.m in Sources */,
 			);

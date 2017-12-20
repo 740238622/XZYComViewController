@@ -5,12 +5,8 @@
 //  Created by 徐自由 on 2017/12/20.
 //  Copyright © 2017年 徐自由. All rights reserved.
 //
-#pragma mark - 系统高度
-#define Screen_Width [UIScreen mainScreen].bounds.size.width
-#define Screen_Height [UIScreen mainScreen].bounds.size.height
-#define NavigationHeight (iPhoneX?88:64)//导航
-#define TabbarHeight (iPhoneX?34:0)//iPhoneX底部留34
-#define StatusHeight (iPhoneX?44:20)//状态栏
+
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
 
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
@@ -60,14 +56,18 @@
 {
     //先隐藏系统的导航栏
     self.navigationController.navigationBarHidden=YES;
-    _navView = [[UIView alloc] initWithFrame:CGRectMake(0, StatusHeight, Screen_Width, 44)];
+    _navHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, iPhoneX?44:20)];
+    _navHeadView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_navHeadView];
+    
+    _navView = [[UIView alloc] initWithFrame:CGRectMake(0, iPhoneX?44:20, ScreenWidth, 44)];
     _navView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_navView];
 }
 
 - (void)initNavTitleView
 {
-    navTitleLable = [[UILabel alloc] initWithFrame:CGRectMake(50, 2, Screen_Width - 100, 40)];
+    navTitleLable = [[UILabel alloc] initWithFrame:CGRectMake(50, 2, ScreenWidth - 100, 40)];
     navTitleLable.textAlignment = NSTextAlignmentCenter;
     navTitleLable.textColor = [UIColor blackColor];
     navTitleLable.userInteractionEnabled = NO;
@@ -114,11 +114,11 @@
 
 - (void)addNavRightBtnWithTitle:(NSString *)title
 {
-    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(Screen_Width - 66, 0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:[UIColor blackColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(ScreenWidth - 66, 0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:[UIColor blackColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
 }
 - (void)addNavRightBtnWithTitle:(NSString *)title color:(UIColor *)color
 {
-    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(Screen_Width-66,0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:color Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(ScreenWidth-66,0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:color Size:[UIFont systemFontOfSize:16.0] background:nil];
 }
 
 - (void)addNavRightBtnWithTitle:(NSString *)title color:(UIColor *)color rect:(CGRect)rect
@@ -148,7 +148,7 @@
 }
 - (void)addNavRightBtnWithImage:(NSString *)image
 {
-    navRightBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:CGRectMake(Screen_Width-44-10, 11, 44, 44) title:nil select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+    navRightBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:CGRectMake(ScreenWidth-44-10, 11, 44, 44) title:nil select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
 }
 
 #pragma mark - 导航栏2边按钮的响应处理方法

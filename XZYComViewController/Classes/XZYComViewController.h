@@ -14,12 +14,11 @@
     UIButton *navRightBtn;
     UILabel *navTitleLable;
     
-    BOOL isModal;//是否是模态视图
-
-    
+    BOOL isModal;//是否是模态视图    
 }
 
 @property (nonatomic,retain)UIView *navView;
+@property (nonatomic,retain)UIView *navHeadView;
 
 #pragma mark - 回调
 @property (nonatomic,copy)  void(^completeBlock)(NSString *completeStr);//字符串
