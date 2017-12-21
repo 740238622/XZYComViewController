@@ -8,6 +8,7 @@
 
 #import "XZYMainTabViewController.h"
 #import "XZYComNavtionController.h"
+#import "XZYComViewController.h"
 
 @interface XZYMainTabViewController ()
 
@@ -15,19 +16,53 @@
 
 @implementation XZYMainTabViewController
 
-- (instancetype)init
+- (id)initWithTabbarImages:(NSArray *)images selectImg:(NSArray *)selectImg titles:(NSArray *)titles selectTitleColor:(UIColor *)color viewControllers:(NSArray *)viewControllers
 {
     self = [super init];
     if (self) {
         self.tabBar.translucent = NO;
-        [self addChildViewController];
-        
+        [self addChildViewControllerImages:images selectImg:selectImg titles:titles selectTitleColor:color viewControllers:viewControllers];
     }
     return self;
 }
--(void)addChildViewController{
-//    [self setViewControllers:@[[self WYVC],[self ...]] animated:YES];
+
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        self.tabBar.translucent = NO;
+//        [self addChildViewController];
+//
+//    }
+//    return self;
+//}
+-(void)addChildViewControllerImages:(NSArray *)images selectImg:(NSArray *)selectImg titles:(NSArray *)titles selectTitleColor:(UIColor *)color viewControllers:(NSArray *)viewControllers
+{
+    NSMutableArray *views = [NSMutableArray array];
+    for (NSInteger i = 0; i < images.count; i ++) {
+        XZYComViewController *comV = viewControllers[i];
+        XZYComNavtionController *nav = [[XZYComNavtionController alloc]initWithRootViewController:comV];
+        nav.navigationBarHidden=YES;
+        
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:titles[i] image:[UIImage imageNamed:images[i]] tag:0];
+        item.selectedImage = [[UIImage imageNamed:selectImg[i]]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        NSMutableDictionary *normalText = [NSMutableDictionary dictionary];
+        normalText[NSForegroundColorAttributeName] = [UIColor grayColor];
+        [item setTitleTextAttributes:normalText forState:UIControlStateNormal];
+        
+        //选中状态
+        NSMutableDictionary *selectedText = [NSMutableDictionary dictionary];
+        selectedText[NSForegroundColorAttributeName] = color;
+        [item setTitleTextAttributes:selectedText forState:UIControlStateSelected];
+        
+        comV.tabBarItem = item;
+        
+        [views addObject:comV];
+    }
+    [self setViewControllers:views animated:YES];
 }
+
 //- (CommonNavtionController*)WYVC{
 //
 //    CDHomePageViewController *wyVC = [[CDHomePageViewController alloc]init];

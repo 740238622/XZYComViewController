@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "XZYMainTabViewController.h"
+#import "OnewViewController.h"
+#import "TwoViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    XZYMainTabViewController *main = [[XZYMainTabViewController alloc] initWithTabbarImages:@[@"工具栏_购物车（未选中）",@"工具栏_购物车（未选中）"] selectImg:@[@"工具栏_购物车（选中）",@"工具栏_购物车（选中）"] titles:@[@"第一",@"第二"] selectTitleColor:[UIColor redColor] viewControllers:@[[[OnewViewController alloc] init],[[TwoViewController new] init]]];
+    self.window.rootViewController = main;
+    
     return YES;
 }
 
