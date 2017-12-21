@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MBProgressHUD.h>
 
-@interface XZYComViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface XZYComViewController : UIViewController <UIGestureRecognizerDelegate,MBProgressHUDDelegate>
 {
     UIButton *navLeftBtn;
     UIButton *navRightBtn;
     UILabel *navTitleLable;
+    
+    MBProgressHUD *HUD;
+    UIColor *loadingColor;
     
     BOOL isModal;//是否是模态视图    
 }
@@ -78,5 +82,10 @@
 
 #pragma mark - 延迟调用
 - (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
+
+#pragma mark - 窗体加载进度
+- (void)showLoadingView;
+- (void)closeLoadingView;
+- (void)showMessage:(NSString *)message;
 
 @end

@@ -25,7 +25,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    XZYMainTabViewController *main = [[XZYMainTabViewController alloc] initWithTabbarImages:@[@"工具栏_购物车（未选中）",@"工具栏_购物车（未选中）"] selectImg:@[@"工具栏_购物车（选中）",@"工具栏_购物车（选中）"] titles:@[@"第一",@"第二"] selectTitleColor:[UIColor redColor] viewControllers:@[[[OnewViewController alloc] init],[[TwoViewController new] init]]];
+    XZYMainTabViewController *main = [[XZYMainTabViewController alloc] initWithTabbarImages:@[@"工具栏_购物车（未选中）",@"工具栏_购物车（未选中）"] selectImg:@[@"工具栏_购物车（选中）",@"工具栏_购物车（选中）"] titles:@[@"第一",@"第二"] selectTitleColor:[UIColor redColor] viewControllers:@[[[OnewViewController alloc] init],[[TwoViewController alloc] init]]];
     self.window.rootViewController = main;
     
     return YES;

@@ -271,5 +271,62 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delta), dispatch_get_main_queue(), block);
 }
 
+#pragma mark - 窗体加载进度
+- (void)showLoadingView
+{
+    HUD = [[MBProgressHUD alloc] init];
+    HUD.frame = self.view.bounds;
+    [self.view addSubview:HUD];
+    
+    // Set the hud to display with a color
+//    if(loadingColor){
+//        HUD.bezelView.color = loadingColor;
+//    }else{
+////        HUD.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.7];
+//        HUD.bezelView.color = [UIColor clearColor];
+//    }
+    HUD.bezelView.color = [UIColor clearColor];
+    HUD.delegate = self;
+    HUD.label.text = @"加载中…";
+    
+    [HUD showAnimated:true];
+    
+    //    UIView *mView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    //
+    //    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    //    view1.backgroundColor = [UIColor blackColor];
+    //    view1.alpha = 0.3;
+    //    view1.layer.cornerRadius = 15.0f;
+    //    [mView addSubview:view1];
+    //    UIImage  *image = [UIImage sd_animatedGIFNamed:@"ios加载动效"];
+    //    UIImageView  *gifview=[[UIImageView alloc]initWithFrame:CGRectMake(0,0,80, 80)];
+    //    gifview.image=image;
+    //    [mView addSubview:gifview];
+    //    HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //    HUD.color=[UIColor clearColor];//默认颜色太深了
+    //    HUD.mode = MBProgressHUDModeCustomView;
+    //    HUD.customView=mView;
+}
+
+- (void)closeLoadingView
+{
+    if (HUD) {
+        [HUD hideAnimated:true];
+    }
+}
+
+- (void)showMessage:(NSString *)message
+{
+    NSLog(@"showMessage:%@", message);
+    if(self) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.detailsLabel.text = message;
+        hud.detailsLabel.font = [UIFont boldSystemFontOfSize:16.0f];
+        hud.bezelView.color = [UIColor clearColor];
+
+        [hud hideAnimated:YES afterDelay:2];
+    }
+}
 
 @end

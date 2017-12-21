@@ -20,6 +20,7 @@
     
     self.view.backgroundColor = [UIColor redColor];
     
+    [self showMessage:@"我确定我全部赌球网百度我穷兵黩武穷兵黩武全部的萨达撒打"];
 }
 
 - (void)didReceiveMemoryWarning {
