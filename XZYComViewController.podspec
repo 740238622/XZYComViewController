@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.source_files = "XZYComViewController/Classes/**/*.{h,m}" #需要托管的源代码路径
   s.resources    = "XZYComViewController/Classes/**/*.png"
   s.requires_arc = true #是否支持ARC
-  s.dependency  "MBProgressHUD", '~>1.1.0'    #所依赖的第三方库，没有就不用写
-
+  # s.dependency 'MBProgressHUD', '1.1.0'
+  s.dependency "MBProgressHUD"
 end

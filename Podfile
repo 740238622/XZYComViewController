@@ -2,6 +2,7 @@
 # platform :ios, '9.0'
 
 target 'XZYComViewController' do
-  pod 'MBProgressHUD', '~>1.1.0'
 
+    pod 'MBProgressHUD'
+        
 end
