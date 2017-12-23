@@ -17,22 +17,6 @@
 @end
 
 @implementation XZYComViewController
-//button
-- (UIButton*)buttonPhotoAlignment:(NSString*)photo hilPhoto:(NSString*)Hphoto rect:(CGRect)rect  title:(NSString*)title  select:(SEL)sel Tag:(NSInteger)tag View:(UIView*)ViewA textColor:(UIColor*)textcolor Size:(UIFont*)size background:(UIColor *)background {
-    UIButton* button=[UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = rect;
-    [button setBackgroundImage:[UIImage imageNamed:photo] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:Hphoto] forState:UIControlStateHighlighted];
-    [button addTarget:self action:sel forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:title forState:UIControlStateNormal];
-    button.tag = tag;
-    [button setTitleColor:textcolor forState:UIControlStateNormal];
-    button.titleLabel.font = size;
-    button.backgroundColor = background;
-    
-    [ViewA addSubview:button];
-    return button;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,7 +66,8 @@
     }
     else
     {
-        [self buttonPhotoAlignment:@"导航栏_返回" hilPhoto:@"" rect:CGRectMake(0, 0, 33, 44) title:@"" select:@selector(actNavBack) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+//        [self buttonPhotoAlignment:@"导航栏_返回" hilPhoto:@"" rect:CGRectMake(0, 0, 33, 44) title:@"" select:@selector(actNavBack) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+        [XZYMyUtil buttonWithRect:CGRectMake(0, 0, 33, 44) backgroundPhoto:@"导航栏_返回" hilPhoto:@"" title:@"" target:self select:@selector(actNavBack) tag:0 textColor:nil fontSize:0 view:_navView];
     }
 }
 
@@ -104,51 +89,66 @@
 #pragma mark - 添加导航栏左右按钮的方法(文本和图片)
 - (void)addNavLeftBtnWithTitle:(NSString *)title
 {
-    navLeftBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(10, 0, 66, 44) title:title select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:[UIColor whiteColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+//    navLeftBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(10, 0, 66, 44) title:title select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:[UIColor whiteColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navLeftBtn = [XZYMyUtil buttonWithRect:CGRectMake(10, 0, 66, 44) backgroundPhoto:@"" hilPhoto:@"" title:title target:self select:@selector(actNavLeftBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
 }
 
 - (void)addNavLeftBtnWithTitle:(NSString *)title rect:(CGRect)rect
 {
-    navLeftBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:rect title:title select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:[UIColor whiteColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+//    navLeftBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:rect title:title select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:[UIColor whiteColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navLeftBtn = [XZYMyUtil buttonWithRect:rect backgroundPhoto:@"" hilPhoto:@"" title:title target:self select:@selector(actNavLeftBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
+
+    
 }
 
 - (void)addNavRightBtnWithTitle:(NSString *)title
 {
-    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(ScreenWidth - 66, 0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:[UIColor blackColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+//    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(ScreenWidth - 66, 0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:[UIColor blackColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:CGRectMake(ScreenWidth - 66, 0, 66, 44) backgroundPhoto:@"" hilPhoto:@"" title:title target:self select:@selector(actNavRightBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
 }
 - (void)addNavRightBtnWithTitle:(NSString *)title color:(UIColor *)color
 {
-    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(ScreenWidth-66,0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:color Size:[UIFont systemFontOfSize:16.0] background:nil];
+//    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:CGRectMake(ScreenWidth-66,0, 66, 44) title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:color Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:CGRectMake(ScreenWidth - 66, 0, 66, 44) backgroundPhoto:@"" hilPhoto:@"" title:title target:self select:@selector(actNavRightBtn) tag:0 textColor:color fontSize:16.0 view:_navView];
 }
 
 - (void)addNavRightBtnWithTitle:(NSString *)title color:(UIColor *)color rect:(CGRect)rect
 
 {
-    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:rect title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:color Size:[UIFont systemFontOfSize:16.0] background:nil];
+//    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:rect title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:color Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:rect backgroundPhoto:@"" hilPhoto:@"" title:title target:self select:@selector(actNavRightBtn) tag:0 textColor:color fontSize:16.0 view:_navView];
     
 }
 - (void)addNavRightBtnWithTitle:(NSString *)title rect:(CGRect)rect
 {
-    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:rect title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:[UIColor orangeColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+//    navRightBtn = [self buttonPhotoAlignment:nil hilPhoto:nil rect:rect title:title select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:[UIColor orangeColor] Size:[UIFont systemFontOfSize:16.0] background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:rect backgroundPhoto:@"" hilPhoto:@"" title:title target:self select:@selector(actNavRightBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
 }
 
 - (void)addNavLeftBtnWithImage:(NSString *)image rect:(CGRect)rect
 {
-    navLeftBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:rect title:nil select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+//    navLeftBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:rect title:nil select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:rect backgroundPhoto:image hilPhoto:@"" title:@"" target:self select:@selector(actNavRightBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
+
     
 }
 - (void)addNavLeftBtnWithImage:(NSString *)image
 {
-    navLeftBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:CGRectMake(10, 11, 44, 44) title:nil select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+//    navLeftBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:CGRectMake(10, 11, 44, 44) title:nil select:@selector(actNavLeftBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:CGRectMake(10, 11, 44, 44) backgroundPhoto:image hilPhoto:@"" title:@"" target:self select:@selector(actNavRightBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
+
 }
 - (void)addNavRightBtnWithImage:(NSString *)image rect:(CGRect)rect
 {
-    navRightBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:rect title:nil select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+//    navRightBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:rect title:nil select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:rect backgroundPhoto:image hilPhoto:@"" title:@"" target:self select:@selector(actNavRightBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
     
 }
 - (void)addNavRightBtnWithImage:(NSString *)image
 {
-    navRightBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:CGRectMake(ScreenWidth-44-10, 11, 44, 44) title:nil select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+//    navRightBtn = [self buttonPhotoAlignment:image hilPhoto:image rect:CGRectMake(ScreenWidth-44-10, 11, 44, 44) title:nil select:@selector(actNavRightBtn) Tag:0 View:_navView textColor:nil Size:nil background:nil];
+    navRightBtn = [XZYMyUtil buttonWithRect:CGRectMake(ScreenWidth-44-10, 11, 44, 44) backgroundPhoto:image hilPhoto:@"" title:@"" target:self select:@selector(actNavRightBtn) tag:0 textColor:[UIColor whiteColor] fontSize:16.0 view:_navView];
+
 }
 
 #pragma mark - 导航栏2边按钮的响应处理方法

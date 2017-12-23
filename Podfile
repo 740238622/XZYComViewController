@@ -4,5 +4,7 @@
 target 'XZYComViewController' do
 
     pod 'MBProgressHUD'
-        
+    
+    pod 'XZYMyUtil'
+    
 end

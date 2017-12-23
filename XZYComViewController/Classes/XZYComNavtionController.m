@@ -6,7 +6,7 @@
 //  Copyright © 2017年 徐自由. All rights reserved.
 //
 
-#define XXXXXXXXXX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)//iPhoneX
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)//iPhoneX
 
 #import "XZYComNavtionController.h"
 
@@ -33,7 +33,7 @@
     [super pushViewController:viewController animated:animated];
     
     // 修改tabBra的frame
-    if(XXXXXXXXXX){
+    if(iPhoneX){
         CGRect frame = self.tabBarController.tabBar.frame;
         frame.origin.y = [UIScreen mainScreen].bounds.size.height - frame.size.height;
         self.tabBarController.tabBar.frame = frame;
