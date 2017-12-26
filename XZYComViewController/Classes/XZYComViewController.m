@@ -73,6 +73,10 @@
 - (void)actNavBack
 {
     if (!isModal && self.navigationController) {
+        //非模态视图
+        if (HUD) {
+            [HUD hideAnimated:true];
+        }
         [self.navigationController popViewControllerAnimated:true];
     }else{
         [self dismissViewControllerAnimated:true completion:nil];
@@ -264,17 +268,17 @@
 - (void)showLoadingView
 {
     HUD = [[MBProgressHUD alloc] init];
-    HUD.frame = self.view.bounds;
-    [self.view addSubview:HUD];
+    HUD.frame = self.navigationController.view.bounds;
+    [self.navigationController.view addSubview:HUD];
     
     // Set the hud to display with a color
 //    if(loadingColor){
 //        HUD.bezelView.color = loadingColor;
 //    }else{
-////        HUD.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.7];
+//        HUD.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.7];
 //        HUD.bezelView.color = [UIColor clearColor];
 //    }
-    HUD.bezelView.color = [UIColor clearColor];
+    HUD.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.7];
     HUD.delegate = self;
     HUD.label.text = @"加载中…";
     
@@ -307,15 +311,21 @@
 - (void)showMessage:(NSString *)message
 {
     NSLog(@"showMessage:%@", message);
-    if(self) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if(self && self.navigationController) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.detailsLabel.text = message;
         hud.detailsLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-        hud.bezelView.color = [UIColor clearColor];
+        hud.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.5];
 
         [hud hideAnimated:YES afterDelay:2];
     }
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+    // Remove HUD from screen when the HUD was hidded
+    [HUD removeFromSuperview];
+    HUD = nil;
 }
 
 @end

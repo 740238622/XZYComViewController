@@ -58,7 +58,7 @@
         
         comV.tabBarItem = item;
         
-        [views addObject:comV];
+        [views addObject:nav];
     }
     [self setViewControllers:views animated:YES];
 }

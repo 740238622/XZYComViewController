@@ -17,7 +17,6 @@
     UILabel *navTitleLable;
     
     MBProgressHUD *HUD;
-    UIColor *loadingColor;
     
     BOOL isModal;//是否是模态视图    
 }
