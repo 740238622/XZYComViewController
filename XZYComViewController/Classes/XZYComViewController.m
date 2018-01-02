@@ -28,7 +28,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.navigationController.tabBarController.tabBar.translucent = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [XZYMyUtil getColor:@"EEEEEE"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -41,11 +41,12 @@
     //先隐藏系统的导航栏
     self.navigationController.navigationBarHidden=YES;
     _navHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, iPhoneX?44:20)];
-    _navHeadView.backgroundColor = [UIColor blackColor];
+    _navHeadView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_navHeadView];
     
     _navView = [[UIView alloc] initWithFrame:CGRectMake(0, iPhoneX?44:20, ScreenWidth, 44)];
     _navView.backgroundColor = [UIColor whiteColor];
+
     [self.view addSubview:_navView];
 }
 
@@ -326,6 +327,12 @@
     // Remove HUD from screen when the HUD was hidded
     [HUD removeFromSuperview];
     HUD = nil;
+}
+
+//修改电池条颜色
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
 }
 
 @end

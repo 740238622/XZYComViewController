@@ -18,9 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    [self showMessage:@"我确定我全部赌球网百度我穷兵黩武穷兵黩武全部的萨达撒打"];
+    [self setNavTitle:@"第一个"];
+    [self showMessage:@"测试测试测试测试测试测试测试测试测试测试测试测试"];
 }
 
 - (void)didReceiveMemoryWarning {
