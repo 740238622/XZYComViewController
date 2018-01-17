@@ -41,7 +41,7 @@
     //先隐藏系统的导航栏
     self.navigationController.navigationBarHidden=YES;
     _navHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, iPhoneX?44:20)];
-    _navHeadView.backgroundColor = [UIColor whiteColor];
+    _navHeadView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_navHeadView];
     
     _navView = [[UIView alloc] initWithFrame:CGRectMake(0, iPhoneX?44:20, ScreenWidth, 44)];
@@ -332,7 +332,7 @@
 //修改电池条颜色
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
-    return UIStatusBarStyleDefault;
+    return UIStatusBarStyleLightContent;
 }
 
 @end
