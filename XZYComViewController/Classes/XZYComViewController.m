@@ -56,7 +56,7 @@
     navTitleLable.textAlignment = NSTextAlignmentCenter;
     navTitleLable.textColor = [UIColor blackColor];
     navTitleLable.userInteractionEnabled = NO;
-    navTitleLable.font = [UIFont systemFontOfSize:18.0f];
+    navTitleLable.font = [UIFont systemFontOfSize:16.0f];
     [_navView addSubview:navTitleLable];
 }
 
