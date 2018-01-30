@@ -26,16 +26,6 @@
     return self;
 }
 
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        self.tabBar.translucent = NO;
-//        [self addChildViewController];
-//
-//    }
-//    return self;
-//}
 -(void)addChildViewControllerImages:(NSArray *)images selectImg:(NSArray *)selectImg titles:(NSArray *)titles selectTitleColor:(UIColor *)color viewControllers:(NSArray *)viewControllers
 {
     NSMutableArray *views = [NSMutableArray array];
@@ -45,6 +35,9 @@
         nav.navigationBarHidden=YES;
         
         UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:titles[i] image:[UIImage imageNamed:images[i]] tag:0];
+        
+        item.image = [[UIImage imageNamed:images[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
         item.selectedImage = [[UIImage imageNamed:selectImg[i]]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         
         NSMutableDictionary *normalText = [NSMutableDictionary dictionary];
