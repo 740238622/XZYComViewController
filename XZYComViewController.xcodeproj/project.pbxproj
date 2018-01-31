@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D0F9F5220219BDE009D4EBA /* ios加载动效@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6D0F9F5020219BDE009D4EBA /* ios加载动效@3x.gif */; };
+		6D0F9F5320219BDE009D4EBA /* ios加载动效@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6D0F9F5120219BDE009D4EBA /* ios加载动效@2x.gif */; };
+		6D0F9F5A2021A58A009D4EBA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0F9F552021A58A009D4EBA /* MBProgressHUD.m */; };
 		6D10B83E1FEB78EA0052DD60 /* OnewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D10B83D1FEB78EA0052DD60 /* OnewViewController.m */; };
 		6D10B8411FEB78F40052DD60 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D10B8401FEB78F40052DD60 /* TwoViewController.m */; };
 		6DEC37BA1FEA6EF900354AA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DEC37B91FEA6EF900354AA0 /* AppDelegate.m */; };
@@ -23,6 +26,10 @@
 /* Begin PBXFileReference section */
 		205F61242A23A9FB11AA1E76 /* Pods-XZYComViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZYComViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-XZYComViewController/Pods-XZYComViewController.release.xcconfig"; sourceTree = "<group>"; };
 		416ECF66FD89D2CC98550171 /* Pods-XZYComViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XZYComViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XZYComViewController/Pods-XZYComViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		6D0F9F5020219BDE009D4EBA /* ios加载动效@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ios加载动效@3x.gif"; sourceTree = "<group>"; };
+		6D0F9F5120219BDE009D4EBA /* ios加载动效@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ios加载动效@2x.gif"; sourceTree = "<group>"; };
+		6D0F9F552021A58A009D4EBA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		6D0F9F572021A58A009D4EBA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		6D10B83C1FEB78EA0052DD60 /* OnewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnewViewController.h; sourceTree = "<group>"; };
 		6D10B83D1FEB78EA0052DD60 /* OnewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnewViewController.m; sourceTree = "<group>"; };
 		6D10B83F1FEB78F40052DD60 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
@@ -102,6 +109,10 @@
 		6DEC37D11FEA70C600354AA0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6D0F9F552021A58A009D4EBA /* MBProgressHUD.m */,
+				6D0F9F572021A58A009D4EBA /* MBProgressHUD.h */,
+				6D0F9F5120219BDE009D4EBA /* ios加载动效@2x.gif */,
+				6D0F9F5020219BDE009D4EBA /* ios加载动效@3x.gif */,
 				6DEC37DC1FEA88AF00354AA0 /* 导航栏_返回@2x.png */,
 				6DEC37DB1FEA88AF00354AA0 /* 导航栏_返回@3x.png */,
 				6DEC37D51FEA713400354AA0 /* XZYComViewController.h */,
@@ -184,7 +195,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D0F9F5320219BDE009D4EBA /* ios加载动效@2x.gif in Resources */,
 				6DEC37DE1FEA88AF00354AA0 /* 导航栏_返回@2x.png in Resources */,
+				6D0F9F5220219BDE009D4EBA /* ios加载动效@3x.gif in Resources */,
 				6DEC37DD1FEA88AF00354AA0 /* 导航栏_返回@3x.png in Resources */,
 				6DEC37C21FEA6EF900354AA0 /* Assets.xcassets in Resources */,
 			);
@@ -252,6 +265,7 @@
 				6D10B83E1FEB78EA0052DD60 /* OnewViewController.m in Sources */,
 				6DEC37D71FEA713400354AA0 /* XZYComViewController.m in Sources */,
 				6DEC37BA1FEA6EF900354AA0 /* AppDelegate.m in Sources */,
+				6D0F9F5A2021A58A009D4EBA /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

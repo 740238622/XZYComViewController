@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MBProgressHUD/MBProgressHUD.h>
+#import "MBProgressHUD.h"
 #import <XZYMyUtil/XZYMyUtil.h>
 
 @interface XZYComViewController : UIViewController <UIGestureRecognizerDelegate,MBProgressHUDDelegate>

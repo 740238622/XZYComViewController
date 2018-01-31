@@ -2,9 +2,9 @@
 # platform :ios, '9.0'
 
 target 'XZYComViewController' do
-
-    pod 'MBProgressHUD'
     
     pod 'XZYMyUtil'
     
+    pod 'SDWebImage'
+
 end

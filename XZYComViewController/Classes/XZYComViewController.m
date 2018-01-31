@@ -11,6 +11,7 @@
 #define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 #import "XZYComViewController.h"
+#import <SDWebImage/UIImage+GIF.h>
 
 @interface XZYComViewController ()
 
@@ -76,7 +77,7 @@
     if (!isModal && self.navigationController) {
         //非模态视图
         if (HUD) {
-            [HUD hideAnimated:true];
+            [HUD hide:true];
         }
         [self.navigationController popViewControllerAnimated:true];
     }else{
@@ -266,46 +267,65 @@
 }
 
 #pragma mark - 窗体加载进度
+
+- (UIImage *)sd_animatedGIFNamed:(NSString *)name {
+    CGFloat scale = [UIScreen mainScreen].scale;
+    
+    if (scale > 1.0f) {
+        NSString *retinaPath = [[NSBundle mainBundle] pathForResource:[name stringByAppendingString:@"@2x"] ofType:@"gif"];
+        
+        NSData *data = [NSData dataWithContentsOfFile:retinaPath];
+        
+        if (data) {
+            return [UIImage sd_animatedGIFWithData:data];
+        }
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"gif"];
+        
+        data = [NSData dataWithContentsOfFile:path];
+        
+        if (data) {
+            return [UIImage sd_animatedGIFWithData:data];
+        }
+        
+        return [UIImage imageNamed:name];
+    }
+    else {
+        NSString *path = [[NSBundle mainBundle] pathForResource:[name stringByAppendingString:@"@3x"] ofType:@"gif"];
+        
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        
+        if (data) {
+            return [UIImage sd_animatedGIFWithData:data];
+        }
+        
+        return [UIImage imageNamed:name];
+    }
+}
+
 - (void)showLoadingView
 {
-    HUD = [[MBProgressHUD alloc] init];
-    HUD.frame = self.navigationController.view.bounds;
-    [self.navigationController.view addSubview:HUD];
+    UIView *mView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
     
-    // Set the hud to display with a color
-//    if(loadingColor){
-//        HUD.bezelView.color = loadingColor;
-//    }else{
-//        HUD.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.7];
-//        HUD.bezelView.color = [UIColor clearColor];
-//    }
-    HUD.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.7];
-    HUD.delegate = self;
-    HUD.label.text = @"加载中…";
-    
-    [HUD showAnimated:true];
-    
-    //    UIView *mView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    //
-    //    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
-    //    view1.backgroundColor = [UIColor blackColor];
-    //    view1.alpha = 0.3;
-    //    view1.layer.cornerRadius = 15.0f;
-    //    [mView addSubview:view1];
-    //    UIImage  *image = [UIImage sd_animatedGIFNamed:@"ios加载动效"];
-    //    UIImageView  *gifview=[[UIImageView alloc]initWithFrame:CGRectMake(0,0,80, 80)];
-    //    gifview.image=image;
-    //    [mView addSubview:gifview];
-    //    HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //    HUD.color=[UIColor clearColor];//默认颜色太深了
-    //    HUD.mode = MBProgressHUDModeCustomView;
-    //    HUD.customView=mView;
+    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    view1.backgroundColor = [UIColor blackColor];
+    view1.alpha = 0.3;
+    view1.layer.cornerRadius = 15.0f;
+    [mView addSubview:view1];
+    UIImage  *image = [self sd_animatedGIFNamed:@"ios加载动效"];
+    UIImageView  *gifview=[[UIImageView alloc]initWithFrame:CGRectMake(0,0,80, 80)];
+    gifview.image=image;
+    [mView addSubview:gifview];
+    HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.color=[UIColor clearColor];//默认颜色太深了
+    HUD.mode = MBProgressHUDModeCustomView;
+    HUD.customView=mView;
 }
 
 - (void)closeLoadingView
 {
     if (HUD) {
-        [HUD hideAnimated:true];
+        [HUD hide:true];
     }
 }
 
@@ -315,11 +335,11 @@
     if(self && self.navigationController) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.detailsLabel.text = message;
-        hud.detailsLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-        hud.bezelView.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.5];
+        hud.labelText = message;
+        hud.labelFont = [UIFont boldSystemFontOfSize:16.0f];
+        hud.color = [UIColor colorWithRed:64/255.0f green:64/255.0f blue:64/255.0f alpha:0.5];
 
-        [hud hideAnimated:YES afterDelay:2];
+        [hud hide:YES afterDelay:2];
     }
 }
 

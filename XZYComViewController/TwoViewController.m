@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view.
     [self setNavTitle:@"第二个"];
     [self showLoadingView];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
